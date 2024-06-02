@@ -1,7 +1,7 @@
 ## Oszust OS Achievement Watcher - Oszust Industries
 ## Created on: 7-16-21 - Last update: 6-02-24
 ## Achievement Notifications Library v1.5.1 - Oszust Industries
-softwareVersion = "v1.1.4.001"
+softwareVersion = "v1.0.0"
 def clear(): return ("\n" * 70)
 from datetime import datetime, timedelta
 import AutoUpdater
@@ -126,22 +126,8 @@ def accountLogin(accountAction):
         exitSystem = True
 ## Email
     elif "emailAccount" in accountAction:
-        if deactivateFileOpening == False:
-            print("Loading verification system...")
-            import smtplib
-            systemEmail, oo7, emailMessage, to = "noreply.oszustindustries@gmail.com", pickle.load(open(str(os.getenv('APPDATA') + "\\Oszust Industries\\Data.p"), "rb")), str(accountAction.replace("emailAccount_", "")), [accountEmail]
-            if emailMessage == "resetPasswordCode":
-                subject = "Manage Password Code"
-                body = "Below is the code to manage the password for your Oszust Industries account:\n\n" + str(emailCode) + "\n\nThis code expires in 5 minutes.\n\n\nOszust Industries (no-reply)"
-            elif emailMessage == "verificationCode":
-                subject = "Verification Code"
-                body = "Below is the code to login into your Oszust Industries account:\n\n""" + str(account2Way) + "\n\nThis code expires in 5 minutes.\n\n\nOszust Industries (no-reply))"
-            message, smtp_server, emailExpireTime = 'Subject: {}\n\n{}'.format(subject, body), smtplib.SMTP_SSL('smtp.gmail.com', 465), datetime.now() + timedelta(minutes=5)
-            smtp_server.ehlo()
-            smtp_server.login(systemEmail, oo7)
-            smtp_server.sendmail(systemEmail, to, message)
-            smtp_server.close()
-            print("\nBe sure to check your junk mail for the email.\n")
+        print(clear() + "This account has 2 factor verification enabled. We are unable to securely send a code. Please try again in a little bit.\n\n\n")
+        accountLogin("setup")
         return
 ## Create Account
     elif "createAccount" in accountAction:
@@ -242,7 +228,6 @@ def accountLogin(accountAction):
                 try:
                     os.mkdir(str(os.getenv('APPDATA') + "\\Oszust Industries"))
                     pickle.dump([], open(str(os.getenv('APPDATA') + "\\Oszust Industries\\Available Account.p"), "wb"))
-                    pickle.dump("D/~RQuY(1c?BS)Iau*W7", open(str(os.getenv('APPDATA') + "\\Oszust Industries\\Data.p"), "wb"))
                     os.mkdir(str(os.getenv('APPDATA') + "\\Oszust Industries\\Accounts"))
                 except OSError:
                     shutil.rmtree(str(os.getenv('APPDATA') + "\\Oszust Industries"))
