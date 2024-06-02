@@ -1,12 +1,13 @@
 ## Oszust OS Achievement Watcher - Oszust Industries
 ## Created on: 7-16-21 - Last update: 6-02-24
 ## Achievement Notifications Library v1.5.1 - Oszust Industries
-softwareVersion = "v1.0.0"
+softwareVersion = "v1.0.0.002"
 def clear(): return ("\n" * 70)
 from datetime import datetime, timedelta
 import AutoUpdater
 import os
 import json
+import pathlib
 import pickle
 
 def softwareConfig():
@@ -226,9 +227,8 @@ def accountLogin(accountAction):
             try: pickle.load(open(str(os.getenv('APPDATA') + "\\Oszust Industries\\Available Account.p"), "rb"))
             except OSError:
                 try:
-                    os.mkdir(str(os.getenv('APPDATA') + "\\Oszust Industries"))
+                    pathlib.Path(os.path.join(os.getenv('APPDATA'), "Oszust Industries", "Accounts")).mkdir(parents=True, exist_ok=True) ## Create cache folder in appdata
                     pickle.dump([], open(str(os.getenv('APPDATA') + "\\Oszust Industries\\Available Account.p"), "wb"))
-                    os.mkdir(str(os.getenv('APPDATA') + "\\Oszust Industries\\Accounts"))
                 except OSError:
                     shutil.rmtree(str(os.getenv('APPDATA') + "\\Oszust Industries"))
                     accountLogin("createUserPath")
