@@ -1,27 +1,36 @@
-# Oszust OS Achievement Watcher
+# Oszust OS Achievement Watcher | [Oszust Industries](https://github.com/Oszust-Industries)
 
-Oszust OS Achievement Watcher displays your game achievements from Oszust Industries games. Find out the number of achievements you have left to earn in each game. You can also view the achievement's description, trophy level, and the time you gained the achievement. You can also find out how long you have played your favorite games and the last time you played them.
+Oszust OS Achievement Watcher is your ultimate companion for tracking achievements in games developed by Oszust Industries. With this tool, you can effortlessly monitor your progress and stay motivated to complete every challenge. Easily see how many achievements you've earned and how many are left in each game, view detailed descriptions, trophy levels, and the exact time you unlocked each achievement. Additionally, you can check your total playtime and the last time you played your favorite games. Stay on top of your gaming accomplishments and make every play session count with Oszust OS Achievement Watcher!
 
-*Certain achievement features are based on what achievement version your game save is running.*
+*Certain achievement features are based on the achievement version in which your game save is running.*
 
 Release Date: July 16, 2021
+
+Category: Gaming
 
 Developer: [Oszust Industries](https://github.com/Oszust-Industries)
 <br /> [![Twitter URL](https://img.shields.io/twitter/url/https/twitter.com/bukotsunikki.svg?style=social&label=Follow%20%40OszustOS)](https://twitter.com/OszustOS)
 
-<br /> Oszust OS Achievement Watcher price - Free 
+## Requirements:
 
-Languages: English
+> [!NOTE]
+> This software is old and doesn't have an interface
+#### Supported Devices:
 
-<br /> This software reads game saves on your computer.
+* **Storage**: 5 MB
+* **Operating Systems**: Windows 10 & 11
 
-This library uses AutoUpdater.
-<br /> (*Updates are auto-checked and installed when available*)
+## Additional Information:
 
-This software uses [Achievement-Notifications-Library](https://github.com/Oszust-Industries/Achievement-Notifications-Library) v1.5.1
+#### Permissions: 
+* Read/write access to files on your device
 
-## Installation:
+#### License:
 
-1. Download the entire .zip file and move to the desired location.
-2. Unzip the file and create a shortcut to the .py file.
-3. Opening the shortcut will start the software.
+Permission to copy, modify, and distribute this software and its associated documentation for personal and non-commercial purposes is denied without explicitly written permission from Oszust Industries.
+
+#### Credits:
+
+This software has a disabled AutoUpdater.
+
+This software uses [Achievement-Notifications-Library](https://github.com/Oszust-Industries/Achievement-Notifications-Library)
