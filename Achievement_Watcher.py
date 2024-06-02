@@ -1,9 +1,9 @@
 ## Oszust OS Achievement Watcher - Oszust Industries
-## Created on: 7-16-21 - Last update: 11-05-21
+## Created on: 7-16-21 - Last update: 6-02-24
 ## Achievement Notifications Library v1.5.1 - Oszust Industries
-softwareVersion = "v1.1.3.001"
+softwareVersion = "v1.1.4.001"
 def clear(): return ("\n" * 70)
-from datetime import date, datetime, timedelta
+from datetime import datetime, timedelta
 import AutoUpdater
 import os
 import json
@@ -11,14 +11,13 @@ import pickle
 
 def softwareConfig():
 ## System Configures
-    global appBuild, autoUpdate, deactivateFileOpening, enableAccountSystem, enableAchievementThreading, exitSystem, overrideResetAchivements, resetSettings, systemName
+    global appBuild, deactivateFileOpening, enableAccountSystem, enableAchievementThreading, exitSystem, overrideResetAchivements, resetSettings, systemName
     systemName, exitSystem = "Oszust OS Achievement Watcher", False
 ## Change Configures
     appBuild = "Dev"                 ## The build the app is running (Beta, Main)
     resetSettings = False             ## Reset account's settings on login
     deactivateFileOpening = False     ## Stops the program from reading/writing on files on PC
     enableAccountSystem = True        ## Enables the account system allowing multiple accounts
-    autoUpdate = True                 ## The program will check for an update every day
     pass
 
 def softwareSetup():
@@ -28,10 +27,7 @@ def softwareSetup():
     accountReady = False
 ## Start Functions
     softwareConfig()
-    if autoUpdate == True and deactivateFileOpening == False and os.name == "nt" and appBuild != "Dev":
-        if AutoUpdater.update(appBuild, softwareVersion) == True: print(clear() + "(Restart app to install update.)\n\nWelcome to Oszust OS Achievement Watcher. " + softwareVersion[:-4] + "\nCreated and published by Oszust Industries\n\n\nOszust Industries Login System:\n\n")
-        else: print(clear() + "Welcome to Oszust OS Achievement Watcher. " + softwareVersion[:-4] + "\nCreated and published by Oszust Industries\n\n\nOszust Industries Login System:\n\n")
-    else: print(clear() + "Welcome to Oszust OS Achievement Watcher. " + softwareVersion[:-4] + "\nCreated and published by Oszust Industries\n\n\nOszust Industries Login System:\n\n")
+    print(clear() + "Welcome to Oszust OS Achievement Watcher. " + softwareVersion[:-4] + "\nCreated and published by Oszust Industries\n\n\nOszust Industries Login System:\n\n")
     accountLogin("setup")
     if exitSystem == False: startMenu("")
 
@@ -319,7 +315,7 @@ def accountLogin(accountAction):
         newAccountUsername = input(str("\nRename Account:\n\nWhat would you like to rename " + currentAccountUsername + "'s account to? "))
         if newAccountUsername.lower() in ["cancel", "quit", "exit", "back", "return"] and accountReady == True:
             print(clear())
-            testAchievements()
+            accountLogin("setup")
         elif newAccountUsername.lower() in ["cancel", "quit", "exit", "back", "return"] and accountReady == False: softwareSetup()
         elif newAccountUsername not in availableAccounts and newAccountUsername.lower() not in badUsernames:
                 availableAccounts.remove(currentAccountUsername)
